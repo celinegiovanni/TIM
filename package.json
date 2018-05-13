@@ -1,0 +1,14 @@
+{
+  "name": "tim",
+  "version": "0.1.0",
+  "description": "",
+  "main": "build/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Celine Giovanni",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^2.0.0"
+  }
+}
