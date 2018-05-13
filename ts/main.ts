@@ -9,13 +9,14 @@ export class App {
     fileHandler: FileHandler;
 
     constructor() {
-        // initialise
-        // this.display = new Display();
+        // initialise file handler
+        this.fileHandler = new FileHandler();
 
         // Quit when all windows are closed
         app.on("window-all-closed", () => {
             // for mac
-            if (process.platform !== "darwin") app.quit();
+            // if (process.platform !== "darwin") app.quit();
+            app.quit();
         });
 
         // app.on("active", () => {
@@ -30,9 +31,6 @@ export class App {
 
     createWindow() : void {
         const homepage = "index.html";
-
-        // initialise file handler
-        this.fileHandler = new FileHandler();
 
         // create browser window
         this.window = new BrowserWindow({width: 800, height: 600});
