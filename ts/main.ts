@@ -1,6 +1,7 @@
 import {app, BrowserWindow} from "electron";
 import {Display} from "./display";
 import {FileHandler} from "./file-handler"
+import { setTimeout } from "timers";
 
 export class App {
     window : BrowserWindow;
@@ -45,12 +46,28 @@ export class App {
             this.window = null;
         })
 
+        // show dev tools
+        this.window.webContents.openDevTools()
+
         // initialize things
         this.display = new Display(this);
+
+        this.doJS("document.getElementById('directoryList').innerHTML += '<div>hi</div>'");
     }
 
     openFile(fname: string, format: string) : any {
         return this.fileHandler.openFile(fname, format)
+    }
+
+    doJS(action: string) {
+        // if (this.window.webContents.isLoading()) {
+        //     console.log("timeout");
+        //     setTimeout(() => {
+        //         this.doJS(action);
+        //     }, 1000);
+        // }
+        
+        this.window.webContents.executeJavaScript(action);
     }
 
 }

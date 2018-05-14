@@ -10,5 +10,9 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^2.0.0"
+  },
+  "dependencies": {
+    "node-smb-server": "^0.10.36",
+    "smb2": "^0.2.7"
   }
 }
