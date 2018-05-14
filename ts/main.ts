@@ -52,7 +52,8 @@ export class App {
         // initialize things
         this.display = new Display(this);
 
-        this.doJS("document.getElementById('directoryList').innerHTML += '<div>hi</div>'");
+        // this.doJS("document.getElementById('directoryList').innerHTML += '<div>hi</div>'");
+        // this.doJS("test();")
     }
 
     openFile(fname: string, format: string) : any {
@@ -66,7 +67,8 @@ export class App {
         //         this.doJS(action);
         //     }, 1000);
         // }
-        
+
+        console.log(action);
         this.window.webContents.executeJavaScript(action);
     }
 

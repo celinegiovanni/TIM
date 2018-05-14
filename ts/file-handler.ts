@@ -85,7 +85,7 @@ export class FileHandler {
             fs.readdir(pathString, (err, items) => {
                 if (err) {
                     console.error(err);
-                    reject();
+                    reject([]);
                 }
 
                 resolve(items);

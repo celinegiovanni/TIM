@@ -1,21 +1,20 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Timer = /** @class */ (function () {
-    function Timer() {
+class Timer {
+    constructor() {
         this.startTime = 0;
         this.pauseTime = 0;
         this.finishTime = 0;
     }
-    Timer.prototype.startTimer = function () {
+    startTimer() {
         this.startTime = Date.now();
-    };
-    Timer.prototype.stopTimer = function () {
+    }
+    stopTimer() {
         this.finishTime = Date.now();
-    };
-    Timer.prototype.pauseTimer = function () {
+    }
+    pauseTimer() {
         this.pauseTime = Date.now();
-    };
-    return Timer;
-}());
+    }
+}
 exports.Timer = Timer;
 //# sourceMappingURL=timer.js.map

@@ -6,7 +6,6 @@ export class Display {
 
     constructor(app: App){
         this.app = app;
-        // this.dirListEl = document.getElementById("directoryList");
         this.populateProjects();
     }
 
@@ -14,24 +13,16 @@ export class Display {
         const fileHandler = this.app.fileHandler;
 
         // change to server group dir
-        // make this a config
+        // make this a config 
         let dirList = await fileHandler.readDir(
             fileHandler.changeDir("/Volumes/nzaklssf_group")
         );
 
-        let dirListString = "document.getElementById('directoryList').innerHTML += <div>hi</div>";
-        // dirList.forEach((fname) => {
-        //     dirListString += ("<li>${fname}</li>");
-        // })
-
-        // console.log(dirListString);
-        // this.app.doJS(dirListString.toString());
-
-        // this.app.doJS("document.getElementById('directoryList').innerHTML += <div>hi</div>");
-        // this.test();
+        this.populateList("directoryList", dirList);
     }
 
-    test(){
-        this.app.doJS("document.getElementById('directoryList').innerHTML += <div>hi</div>");
+    populateList(el: string, children: string[]) {
+        children = children.map(i => `"${i}"`);
+        this.app.doJS(`populateList(directoryList, [${children}]);`)
     }
 }
